@@ -1,0 +1,154 @@
+/* --- General Section Padding --- */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* --- Circle Images (Clients, Realtors, etc.) --- */
+.circle-img {
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 4px solid #fed7aa; /* Tailwind orange-200 */
+}
+
+/* --- Tab Content for Admin Panel --- */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* --- Card Shadow for Project/Client Cards --- */
+.card-shadow {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* --- Responsive Image Grid (About Us, Projects, etc.) --- */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* --- Utility: Hide visually but keep accessible --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* --- Example: Custom Button Style (if needed) --- */
+.btn-orange {
+  background-color: #f97316;
+  color: #fff;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-orange:hover {
+  background-color: rgb(234, 182, 12)f5;
+}
+
+/* --- Happy Clients Section --- */
+#clients {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: #fff;
+}
+#clients h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+#clients-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+@media (min-width: 640px) {
+  #clients-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  #clients-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  #clients-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.client-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.client-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  transform: translateY(-8px) scale(1.03);
+}
+.client-card img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.client-card .client-name {
+  font-weight: 600;
+  color: #2563eb;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+.client-card .client-name:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+.client-card .client-title {
+  color: #a0aec0;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* --- Contact Newsletter Section --- */
+#contact-newsletter .bg-orange-500 form {
+  width: 100%;
+}
+
+#contact-newsletter input[type="email"] {
+  min-width: 0;
+}
+
+#contact-newsletter button[type="submit"] {
+  white-space: nowrap;
+}
+
+/* Responsive tweaks for horizontal newsletter */
+@media (max-width: 767px) {
+  #contact-newsletter .bg-orange-500 form {
+    flex-direction: column;
+  }
+}
+
+/* --- Add more custom styles as needed below --- */
