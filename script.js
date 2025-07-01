@@ -231,12 +231,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('DOMContentLoaded', revealOnScroll);
 
     // Initial tab activation in admin panel (if admin panel is visible)
-    if (!adminPanel.classList.contains('hidden')) {
+    if (adminPanel && !adminPanel.classList.contains('hidden')) {
          const dashboardTab = document.querySelector('.dashboard-tab');
          if(dashboardTab) dashboardTab.click();
     }
 
 });
+
 document.addEventListener('DOMContentLoaded', function () {
   const tabLinks = document.querySelectorAll('.tab-link');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -257,32 +258,34 @@ document.addEventListener('DOMContentLoaded', function () {
   if (tabContents.length) tabContents[0].style.display = 'block';
 });
 
-// Fetch and display clients in the Happy Clients section
+// Fetch and display clients in the Happy Clients section (using mock data for demo)
 document.addEventListener('DOMContentLoaded', function () {
-  // Replace this URL with your actual backend endpoint
-  fetch('https://your-backend-api.com/api/clients')
-    .then(response => response.json())
-    .then(clients => {
-      const clientsList = document.getElementById('clients-list');
-      if (!clientsList) return;
-      clientsList.innerHTML = ''; // Clear any existing content
-      clients.forEach(client => {
-        const clientCard = document.createElement('div');
-        clientCard.className = 'flex flex-col items-center text-center bg-gray-50 rounded-lg shadow p-6';
-        clientCard.innerHTML = `
-          <img src="${client.image}" alt="${client.name}" class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-orange-200 shadow">
-          <h3 class="text-lg font-semibold">${client.name}</h3>
-          <p class="text-orange-500 text-sm mb-2">${client.designation}</p>
-          <p class="text-gray-600 text-sm mt-2">${client.description}</p>
-        `;
-        clientsList.appendChild(clientCard);
-      });
-    })
-    .catch(error => {
-      const clientsList = document.getElementById('clients-list');
-      if (clientsList) {
-        clientsList.innerHTML = '<p class="text-red-500">Failed to load clients.</p>';
-      }
-      console.error('Error fetching clients:', error);
-    });
+  const clients = [
+    {
+      image: 'https://via.placeholder.com/96',
+      name: 'John Doe',
+      designation: 'CEO',
+      description: 'Great service!'
+    },
+    {
+      image: 'https://via.placeholder.com/96',
+      name: 'Jane Smith',
+      designation: 'CTO',
+      description: 'Highly recommended.'
+    }
+  ];
+  const clientsList = document.getElementById('clients-list');
+  if (!clientsList) return;
+  clientsList.innerHTML = ''; // Clear any existing content
+  clients.forEach(client => {
+    const clientCard = document.createElement('div');
+    clientCard.className = 'flex flex-col items-center text-center bg-gray-50 rounded-lg shadow p-6';
+    clientCard.innerHTML = `
+      <img src="${client.image}" alt="${client.name}" class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-orange-200 shadow">
+      <h3 class="text-lg font-semibold">${client.name}</h3>
+      <p class="text-orange-500 text-sm mb-2">${client.designation}</p>
+      <p class="text-gray-600 text-sm mt-2">${client.description}</p>
+    `;
+    clientsList.appendChild(clientCard);
+  });
 });
